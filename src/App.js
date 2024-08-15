@@ -1,23 +1,19 @@
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import SearchBar from './components/SearchBar/SearchBar';
+import Tracklist from './components/Tracklist/Tracklist';
 
 function App() {
+
+const [results, setResults] = useState([])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Jammming</h1>
+      <SearchBar setResults={setResults} />
+      <Tracklist results={results} />
+      <button>Save to Spotify</button>
+      
     </div>
   );
 }
