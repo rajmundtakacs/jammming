@@ -3,8 +3,14 @@ import React, {useState} from 'react';
 
 const SearchResults = ({result}) => {
 
+    const playlist = [];
+
     return (
-        <div onClick={(e) => alert(`You've clicked ${result.name}`)}>{result.name}</div>
+        <div>
+            <div onClick={(e) => playlist.push(result.name)}>{result.name}</div>
+            <div>{playlist}</div>
+        </div>
+       
     )
     
 

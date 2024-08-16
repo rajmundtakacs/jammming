@@ -6,15 +6,15 @@ function SearchBar({setResults}) {
 
     const fetchData = (value) => {
         fetch('https://jsonplaceholder.typicode.com/users').then((response) => response.json()).then(json => {
-            const results = json.filter((user) => {
+            const filteredData = json.filter((data) => {
                 return (
                      value &&
-                     user && 
-                     user.name && 
-                     user.name.toLowerCase().includes(value)
+                     data && 
+                     data.name && 
+                     data.name.toLowerCase().includes(value)
                      );
             });
-            setResults(results);
+            setResults(filteredData);
         });
     }
 
@@ -32,7 +32,6 @@ function SearchBar({setResults}) {
         </div>
     )
 }
-
 
 
 export default SearchBar;
