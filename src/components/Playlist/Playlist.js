@@ -1,17 +1,15 @@
 import React, {useState} from 'react';
-import SearchResults from '../SearchResults/SearchResults';
 
 
-const Playlist = ({results}) => {
+const Playlist = ({playlist, removeFromPlaylist, onSave}) => {
 
-    const [playlistName, setPlaylistName] = useState('First Playlist');
-    const [playlist, setPlaylist] = useState(['track one', 'track two', 'track three']);
+    const [playlistName, setPlaylistName] = useState('');
 
     return (
         <div>
-            <input id ='name' type='text' placeholder='Name your playlist... ' onChange={(e) => setPlaylistName(e.target.value)} />
-            <input type='submit' value='Save the playlist' />
-            <div>{playlistName}</div>
+            <input value={playlistName} id ='name' type='text' placeholder='Name your playlist... ' onChange={(e) => setPlaylistName(e.target.value)} />
+            <div>{playlist.map((track, i) => <div>{track.name}<button onClick={(event) => removeFromPlaylist(i)} >Remove</button></div>)}</div>
+            <button onClick={onSave} >Save to Spotify</button>
         </div>
     )
 

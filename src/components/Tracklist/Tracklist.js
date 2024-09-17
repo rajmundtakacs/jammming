@@ -1,14 +1,14 @@
 import React, {useState} from 'react';
-import SearchResults from '../SearchResults/SearchResults';
+import Track from '../Track/Track';
 
 
-const Tracklist = ({results}) => {
+const Tracklist = ({results, addToPlaylist}) => {
 
     return (
         <div>
             {
                 results.map((result, id) => {
-                    return <SearchResults result={result} key={id} />
+                    return <Track result={result} key={id} addToPlaylist={addToPlaylist} />
                 })
             }
             

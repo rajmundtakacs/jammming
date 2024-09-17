@@ -6,15 +6,17 @@ import React, {useState} from 'react';
 
 
 
-function Track(props) {
+const Track = ({result, addToPlaylist}) => {
 
-    
 
     return (
         <div>
-            
+            <div>{result.name} <input type='button' value='Add +' onClick={(event) => addToPlaylist(result)} /></div>
         </div>
+       
     )
+    
+
 }
 
 

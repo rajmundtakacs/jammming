@@ -6,15 +6,46 @@ import Playlist from './components/Playlist/Playlist';
 
 function App() {
 
-const [results, setResults] = useState([])
+const [results, setResults] = useState([]);
+
+const [playlist, setPlaylist] = useState([
+  {
+    name: 'name1',
+    artist: 'artist1',
+    album: 'album1',
+    id: 1,
+    uri: 'uri1'
+  },
+  {
+    name: 'name2',
+    artist: 'artist2',
+    album: 'album2',
+    id: 2,
+    uri: 'uri2'
+  }
+]);
+
+const [trackURIs, setTrackURIs] = useState([]);
+
+const addToPlaylist = (track) => {
+  setPlaylist([track, ...playlist])
+}
+
+const removeFromPlaylist = (index) => {
+  setPlaylist(playlist.filter((track, i ) => i !== index))
+}
+
+const savePlaylist = () => {
+  setTrackURIs(playlist.map((track) => track.uri));
+}
 
   return (
     <div className="App">
       <h1>Jammming</h1>
       <SearchBar setResults={setResults} />
-      <Tracklist results={results} />
-      <Playlist />
-      <button>Save to Spotify</button>
+      <Tracklist results={results} playlist={playlist} addToPlaylist={addToPlaylist} />
+      <Playlist playlist={playlist} removeFromPlaylist={removeFromPlaylist} onSave={savePlaylist} />
+      <p>{trackURIs}</p>
     </div>
   );
 }
