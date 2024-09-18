@@ -3,6 +3,8 @@ import './App.css';
 import SearchBar from './components/SearchBar/SearchBar';
 import Tracklist from './components/Tracklist/Tracklist';
 import Playlist from './components/Playlist/Playlist';
+import Spotify from './util/Spotify/Spotify';
+
 
 function App() {
 
@@ -46,6 +48,7 @@ const savePlaylist = () => {
       <Tracklist results={results} playlist={playlist} addToPlaylist={addToPlaylist} />
       <Playlist playlist={playlist} removeFromPlaylist={removeFromPlaylist} onSave={savePlaylist} />
       <p>{trackURIs}</p>
+      <Spotify />
     </div>
   );
 }
