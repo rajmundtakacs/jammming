@@ -24,7 +24,7 @@ function App() {
   const [trackURIs, setTrackURIs] = useState([]);
 
   const savePlaylist = () => {
-    setTrackURIs(playlist.map((track) => track.uri));
+    setTrackURIs(playlist.map((track) =>  <li>{track.uri}</li>));
   }
 
   
