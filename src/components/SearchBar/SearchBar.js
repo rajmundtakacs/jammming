@@ -66,28 +66,6 @@ function SearchBar({setResults}) {
             }
          }
 
-/*
-                try {
-
-                    const response = await fetch('https://jsonplaceholder.typicode.com/users');
-          
-                      if (response.ok) {
-                          const jsonResponse = await response.json();
-                          const filteredData = jsonResponse.filter((data) => {
-                              return (data && data.name && data.name.toLowerCase().includes(value));
-                          });
-                          
-                          setResults(filteredData);
-                          
-                       }
-          
-                } catch (error) {
-                      console.log(error)
-                  }
-              }
-    
-*/
-
     const handleChange = (value) => {
         setSearchInput(value);  
     }
@@ -103,8 +81,6 @@ function SearchBar({setResults}) {
             <form onSubmit={(e) => handleSubmit(e)} >
                 <input onChange={(e) => handleChange(e.target.value)} type="text" value={searchInput} placeholder='Type something...' />
                 <input type="submit" value="Search" />
-                <p>{token}</p>
-                <p>{expire}</p>
             </form>
         </div>
     )

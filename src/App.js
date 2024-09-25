@@ -9,22 +9,7 @@ function App() {
 
   const [results, setResults] = useState([]);
 
-  const [playlist, setPlaylist] = useState([
-    {
-      name: 'name1',
-      artist: 'artist1',
-      album: 'album1',
-      id: 1,
-      uri: 'uri1'
-    },
-    {
-      name: 'name2',
-      artist: 'artist2',
-      album: 'album2',
-      id: 2,
-      uri: 'uri2'
-    }
-  ]);
+  const [playlist, setPlaylist] = useState([]);
 
 
 
