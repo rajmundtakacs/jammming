@@ -41,14 +41,20 @@ const savePlaylist = () => {
   setTrackURIs(playlist.map((track) => track.uri));
 }
 
+const [token, setToken] = useState('');
+const [expire, setExpire] = useState('');
+
+
   return (
     <div className="App">
       <h1>Jammming</h1>
-      <SearchBar setResults={setResults} />
-      <Tracklist results={results} playlist={playlist} addToPlaylist={addToPlaylist} />
+      <SearchBar setResults={setResults} token={token} />
+      <Tracklist results={results} addToPlaylist={addToPlaylist} />
       <Playlist playlist={playlist} removeFromPlaylist={removeFromPlaylist} onSave={savePlaylist} />
       <p>{trackURIs}</p>
-      <Spotify />
+      <Spotify setToken={setToken} setExpire={setExpire}/>
+      <p>{token}</p>
+      <p>{expire}</p>
     </div>
   );
 }

@@ -1,8 +1,6 @@
-import React, {useState} from 'react';
+import React from 'react';
 
-function Spotify() {
-
-    const [token, setToken] = useState('');
+function Spotify({setToken, setExpire}) {
 
     const getToken = async () => {
 
@@ -18,6 +16,7 @@ function Spotify() {
             if (response.ok) {
                 const jsonResponse = await response.json();
                 setToken(jsonResponse.access_token);
+                setExpire(jsonResponse.expires_in);
             }
     
         } catch (error) {
@@ -29,8 +28,7 @@ function Spotify() {
 
     return (
         <div>
-            <button onClick={getToken} >get token</button>
-            <p>{token}</p>
+              <button onClick={getToken} >get token</button>
         </div>
     )
 }

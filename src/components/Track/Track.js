@@ -1,11 +1,6 @@
 import React, {useState} from 'react';
 
 
-
-
-
-
-
 const Track = ({result, addToPlaylist}) => {
 
 
@@ -18,9 +13,6 @@ const Track = ({result, addToPlaylist}) => {
     
 
 }
-
-
-
 
 
 export default Track;

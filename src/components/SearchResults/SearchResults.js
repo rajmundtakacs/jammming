@@ -1,4 +1,7 @@
-import React, {useState} from 'react';
+// Ez már nem kell, csak benthagytam még.
+
+
+/* import React, {useState} from 'react';
 
 
 const SearchResults = ({result}) => {
@@ -16,4 +19,4 @@ const SearchResults = ({result}) => {
 
 }
 
-export default SearchResults;
+export default SearchResults; */

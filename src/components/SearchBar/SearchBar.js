@@ -1,47 +1,52 @@
 import React, {useState} from 'react';
 
-const mockData = [
-    {
-        name: 'name1',
-        artist: 'artist1',
-        album: 'album1',
-        id: 1,
-        uri: 'uri1'
-      },
-      {
-        name: 'name2',
-        artist: 'artist2',
-        album: 'album2',
-        id: 2,
-        uri: 'uri2'
-      }
-]
 
 
-function SearchBar({setResults, mockData}) {
+function SearchBar({setResults, token}) {
 
     const [searchInput, setSearchInput] = useState('');
 
     const fetchData = async (value) => {
 
-      try {
 
-          const response = await fetch('https://jsonplaceholder.typicode.com/users');
+          /* const response = await fetch(`https://api.spotify.com/v1/search?q=${value}&type=track`, {
+            method: 'GET',
+            headers: {Authorization: `bearer ${token}`}
+          });
 
             if (response.ok) {
                 const jsonResponse = await response.json();
-                const filteredData = jsonResponse.filter((data) => {
-                    return (data && data.name && data.name.toLowerCase().includes(value));
-                });
-                
-                setResults(filteredData);
-                
-             }
+                const filteredData = jsonResponse.tracks.items.map(data => {
+                    return ({
+                        id: data.id,
+                        name: data.name,
+                        artist: data.artists[0].name,
+                        album: data.album.name,
+                        uri: data.uri
+                    })
+                    
+                }) */
 
-      } catch (error) {
-            console.log(error)
-        }
-    }
+                try {
+
+                    const response = await fetch('https://jsonplaceholder.typicode.com/users');
+          
+                      if (response.ok) {
+                          const jsonResponse = await response.json();
+                          const filteredData = jsonResponse.filter((data) => {
+                              return (data && data.name && data.name.toLowerCase().includes(value));
+                          });
+                          
+                          setResults(filteredData);
+                          
+                       }
+          
+                } catch (error) {
+                      console.log(error)
+                  }
+              }
+    
+
 
     const handleChange = (value) => {
         setSearchInput(value);  
