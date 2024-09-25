@@ -25,7 +25,6 @@ function SearchBar({setResults}) {
                 const jsonResponse = await response.json();
                 setToken(jsonResponse.access_token);
                 setExpire(jsonResponse.expires_in);
-                return token;
             }
     
         } catch (error) {
@@ -41,7 +40,7 @@ function SearchBar({setResults}) {
             
             const response = await fetch(`https://api.spotify.com/v1/search?q=${value}&type=track`, {
                 method: 'GET',
-                headers: {Authorization: `bearer ${token}`}
+                headers: {Authorization: `Bearer ${token}`}
               });
 
               if (response.ok) {
