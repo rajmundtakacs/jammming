@@ -11,10 +11,8 @@ const SearchResults = ({results, addToPlaylist}) => {
                     return <Track result={result} key={id} addToPlaylist={addToPlaylist} />
                 })
             }
-            
         </div>
     )
-    
 
 }
 

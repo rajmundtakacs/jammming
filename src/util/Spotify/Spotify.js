@@ -23,17 +23,14 @@ function Spotify({setToken, setExpire}) {
             console.log(error);
         }
         
-        
     }
 
     return (
         <div>
-              <button onClick={getToken} >get token</button>
+              <button onClick={getToken}>get token</button>
         </div>
     )
 }
 
     
-
-
 export default Spotify;

@@ -13,7 +13,6 @@ const Playlist = ({playlist, removeFromPlaylist, onSave}) => {
         </div>
     )
 
-
 }
 
 
