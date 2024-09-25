@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import './App.css';
 import SearchBar from './components/SearchBar/SearchBar';
-import Tracklist from './components/Tracklist/Tracklist';
+import SearchResults from './components/SearchResults/SearchResults';
 import Playlist from './components/Playlist/Playlist';
 import Spotify from './util/Spotify/Spotify';
 
@@ -49,7 +49,7 @@ const [expire, setExpire] = useState('');
     <div className="App">
       <h1>Jammming</h1>
       <SearchBar setResults={setResults} token={token} />
-      <Tracklist results={results} addToPlaylist={addToPlaylist} />
+      <SearchResults results={results} addToPlaylist={addToPlaylist} />
       <Playlist playlist={playlist} removeFromPlaylist={removeFromPlaylist} onSave={savePlaylist} />
       <p>{trackURIs}</p>
       <Spotify setToken={setToken} setExpire={setExpire}/>

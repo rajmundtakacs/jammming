@@ -1,22 +1,21 @@
-// Ez már nem kell, csak benthagytam még.
+import React, {useState} from 'react';
+import Track from '../Track/Track';
 
 
-/* import React, {useState} from 'react';
-
-
-const SearchResults = ({result}) => {
-
-    const playlist = [];
+const SearchResults = ({results, addToPlaylist}) => {
 
     return (
         <div>
-            <div onClick={(e) => playlist.push(result.name)}>{result.name}</div>
-            <div>{playlist}</div>
+            {
+                results.map((result, id) => {
+                    return <Track result={result} key={id} addToPlaylist={addToPlaylist} />
+                })
+            }
+            
         </div>
-       
     )
     
 
 }
 
-export default SearchResults; */
+export default SearchResults;
