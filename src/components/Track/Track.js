@@ -5,7 +5,7 @@ const Track = ({result, addToPlaylist}) => {
 
     return (
         <div>
-            <div>{result.name} <input type='button' value='Add +' onClick={(event) => addToPlaylist(result)} /></div>
+            <div>{result.artist} - {result.name} <input type='button' value='Add +' onClick={(event) => addToPlaylist(result)} /></div>
         </div>
        
     ) 
