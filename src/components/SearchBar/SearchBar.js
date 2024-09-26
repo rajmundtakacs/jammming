@@ -21,7 +21,6 @@ function SearchBar({setResults}) {
 
                 return jsonResponse.access_token;
 
-                //setExpire(jsonResponse.expires_in);
             }
     
         } catch (error) {
