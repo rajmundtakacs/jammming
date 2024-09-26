@@ -3,12 +3,7 @@ import React, {useState} from 'react';
 
 function SearchBar({setResults}) {
 
-    const [searchInput, setSearchInput] = useState('');
-
-    const [token, setToken] = useState('');
-    const [expire, setExpire] = useState('');
-
-    
+    const [searchInput, setSearchInput] = useState(''); 
 
     const getToken = async () => {
 
@@ -23,8 +18,10 @@ function SearchBar({setResults}) {
     
             if (response.ok) {
                 const jsonResponse = await response.json();
-                setToken(jsonResponse.access_token);
-                setExpire(jsonResponse.expires_in);
+
+                return jsonResponse.access_token;
+
+                //setExpire(jsonResponse.expires_in);
             }
     
         } catch (error) {
@@ -33,7 +30,7 @@ function SearchBar({setResults}) {
         
     }
 
-    const fetchData = async (value) => {
+    const fetchData = async (token, value) => {
 
         try {
 
@@ -45,7 +42,7 @@ function SearchBar({setResults}) {
 
               if (response.ok) {
                 const jsonResponse = await response.json();
-                const filteredData = jsonResponse.tracks.items.map(data => {
+                const returnedData = jsonResponse.tracks.items.map(data => {
                     return ({
                         id: data.id,
                         name: data.name,
@@ -56,7 +53,7 @@ function SearchBar({setResults}) {
                     
                 })
                   
-                  setResults(filteredData);
+                  setResults(returnedData);
                   
                }
   
@@ -66,13 +63,17 @@ function SearchBar({setResults}) {
          }
 
     const handleChange = (value) => {
-        setSearchInput(value);  
+        setSearchInput(value); 
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        getToken();
-        fetchData(searchInput);
+        
+        const token = await getToken();
+
+        if (token) {
+            await fetchData(token, searchInput);
+        }
     }
 
     return (
