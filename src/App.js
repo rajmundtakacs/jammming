@@ -21,22 +21,13 @@ function App() {
     setPlaylist(playlist.filter((track, i ) => i !== index))
   }
 
-  const [trackURIs, setTrackURIs] = useState([]);
-
-  const savePlaylist = () => {
-    setTrackURIs(playlist.map((track) =>  <li>{track.uri}</li>));
-  }
-
-  
-
 
   return (
     <div className="App">
       <h1>Jammming</h1>
       <SearchBar setResults={setResults}/>
       <SearchResults results={results} addToPlaylist={addToPlaylist} />
-      <Playlist playlist={playlist} removeFromPlaylist={removeFromPlaylist} onSave={savePlaylist} />
-      <p>{trackURIs}</p>
+      <Playlist playlist={playlist} removeFromPlaylist={removeFromPlaylist} />
     </div>
   );
 }

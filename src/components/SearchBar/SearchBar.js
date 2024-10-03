@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 
 function SearchBar({setResults}) {
 
-    const [searchInput, setSearchInput] = useState(''); 
+    const [searchInput, setSearchInput] = useState('');
 
     const getToken = async () => {
 
@@ -27,12 +27,11 @@ function SearchBar({setResults}) {
             console.log(error);
         }
         
-    }
+    } 
 
     const fetchData = async (token, value) => {
 
         try {
-
             
             const response = await fetch(`https://api.spotify.com/v1/search?q=${value}&type=track`, {
                 method: 'GET',
@@ -61,6 +60,8 @@ function SearchBar({setResults}) {
             }
          }
 
+         
+
     const handleChange = (value) => {
         setSearchInput(value); 
     }
@@ -73,7 +74,8 @@ function SearchBar({setResults}) {
         if (token) {
             await fetchData(token, searchInput);
         }
-    }
+    } 
+
 
     return (
         <div>
