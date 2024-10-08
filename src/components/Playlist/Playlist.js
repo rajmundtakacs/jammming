@@ -2,11 +2,31 @@ import React, { useState, useEffect } from 'react';
 import { loginToSpotify, getAccessTokenFromUrl } from '../../util/Spotify';
 
 const Playlist = ({ playlist, removeFromPlaylist }) => {
-    const [playlistName, setPlaylistName] = useState(''); // State for playlist name
-    const [accessToken, setAccessToken] = useState('');   // State for access token
-    const [userProfile, setUserProfile] = useState(null); // State for user profile
+
+    const [playlistName, setPlaylistName] = useState('');
+    const [accessToken, setAccessToken] = useState(''); 
+    const [userProfile, setUserProfile] = useState(null);
+
+
+    useEffect(() => {
+        const token = getAccessTokenFromUrl();
+        if (token) {
+            setAccessToken(token);
+        } 
+    }, []);
+
+    useEffect(() => {
+        if (accessToken) {
+            getUserProfile();
+        }
+    }, [accessToken]);
+
+    const handleLogin = () => {
+        loginToSpotify();
+    };
 
     const getUserProfile = async () => {
+
         if (!accessToken) {
             console.log('No access token available');
             return;
@@ -14,9 +34,10 @@ const Playlist = ({ playlist, removeFromPlaylist }) => {
 
         try {
             const response = await fetch('https://api.spotify.com/v1/me', {
+                method: 'GET',
                 headers: {
-                    Authorization: `Bearer ${accessToken}`,
-                },
+                    Authorization: `Bearer ${accessToken}`
+                }
             });
 
             if (response.ok) {
@@ -30,19 +51,66 @@ const Playlist = ({ playlist, removeFromPlaylist }) => {
         }
     };
 
-    useEffect(() => {
-        const token = getAccessTokenFromUrl();
-        if (token) {
-            setAccessToken(token);
-        } 
-    }, []); 
 
+    const savePlaylist = async () => {
+
+        if (!userProfile || !playlistName) {
+            console.log('User profile or playlist data is missing.');
+            return;
+        }
+
+        try {
+
+            //Creating the playlist
+            const createPlaylist = await fetch(`https://api.spotify.com/v1/users/${userProfile.id}/playlists`, {
+                method: 'POST',
+                headers: {
+                    Authorization: `Bearer ${accessToken}`,
+                    'Content-type': 'application/json'
+                },
+                body: JSON.stringify({
+                    "name": playlistName,
+                    "description": "New playlist description",
+                    "public": false
+                })
+            });
+        
+            if (!createPlaylist.ok) {
+                console.log('Failed to create playlist');
+                return;
+            }
+
+            const playlistData = await createPlaylist.json();
+
+            // Reaching track uris on the playlist array
+            const trackUris = playlist.map(track => track.uri);
+
+            //Saving tracks to the playlist
+            const saveTracks = await fetch(`https://api.spotify.com/v1/playlists/${playlistData.id}/tracks`, {
+                    method: 'POST',
+                    headers: {
+                        Authorization: `Bearer ${accessToken}`,
+                        'Content-type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        "uris": trackUris,
+                        "position": 0
+                    })
+                });
+
+                if (saveTracks.ok) {
+                    console.log('Tracks added successfully to the playlist')
+                } else {
+                    console.log('Failed to create playlist');
+                    return null;
+                }
     
-    // Handle manual login with button click
-    const handleLogin = () => {
-        loginToSpotify();
-    };
-
+    } catch (error) {
+        console.log(error);
+    }
+}
+    
+    
     return (
         <div>
             <input
@@ -60,21 +128,26 @@ const Playlist = ({ playlist, removeFromPlaylist }) => {
                     </div>
                 ))}
             </div>
+            {userProfile && (
+                <button onClick={savePlaylist}>Save to Spotify</button>
+            )}
 
             {!accessToken && (
                 <button onClick={handleLogin}>Log in to Spotify</button>
             )}
 
-            <button onClick={getUserProfile}>Get User Profile</button>
+            
             {userProfile && (
                 <div>
-                    <h3>{userProfile.display_name}'s Profile</h3>
-                    <p>Email: {userProfile.email}</p>
-                    <p>Country: {userProfile.country}</p>
+                    <h3>{userProfile.display_name}</h3>
+                    <p>{userProfile.email}</p>
+                    <p>{userProfile.country}</p>
                 </div>
-            )}
+            )}  
+            
         </div>
     );
-};
+
+}
 
 export default Playlist;

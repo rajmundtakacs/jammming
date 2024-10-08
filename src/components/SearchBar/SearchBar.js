@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { loginToSpotify, getAccessTokenFromUrl } from '../../util/Spotify';
+import { getAccessTokenFromUrl } from '../../util/Spotify';
 
 function SearchBar({ setResults }) {
-    const [searchInput, setSearchInput] = useState(''); // State for search input
-    const [accessToken, setAccessToken] = useState(''); // State for access token
+
+    const [searchInput, setSearchInput] = useState('');
+    const [accessToken, setAccessToken] = useState('');
 
     const fetchData = async (token, value) => {
         try {
