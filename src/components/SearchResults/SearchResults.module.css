@@ -1,7 +1,8 @@
 .resultsbox h3 {
     font-size: 26px;
+    text-align: center;
 }
 
-.resultbox {
-    width: 50%;
+.resultsbox {
+    width: 40%;
 }

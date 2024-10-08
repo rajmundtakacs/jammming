@@ -116,23 +116,27 @@ const Playlist = ({ playlist, removeFromPlaylist }) => {
         <div className={styles.playlistbox}>
             {userProfile && (
                 <div>
-                    <h3 className={styles.greeting} >Hey {userProfile.display_name} !</h3>
-                    <input
-                        className={styles.playlistinputfield}
-                        value={playlistName}
-                        id="name"
-                        type="text"
-                        placeholder="Name your playlist..."
-                        onChange={(e) => setPlaylistName(e.target.value)}
-                    />
+                    <div>
+                        <h3 className={styles.greeting} >Hey {userProfile.display_name} !</h3>
+                    </div>
+                    <div >
+                        <input
+                            className={styles.playlistinputfield}
+                            value={playlistName}
+                            id="name"
+                            type="text"
+                            placeholder="Name your playlist..."
+                            onChange={(e) => setPlaylistName(e.target.value)}
+                        />
+                    </div>
                 </div>
             )} 
             
             <div>
                 {playlist.map((track, i) => (
-                    <div key={i}>
-                        {track.artist} - {track.name}
-                        <button onClick={() => removeFromPlaylist(i)}>Remove</button>
+                    <div className={styles.trackbox} key={i}>
+                        <p>{track.artist} //// {track.name}</p>
+                        <button className={styles.removebutton} onClick={() => removeFromPlaylist(i)}>-</button>
                     </div>
                 ))}
             </div>

@@ -7,7 +7,7 @@ const Track = ({track, addToPlaylist}) => {
     return (
         <div className={styles.trackbox} >
             <p>{track.artist} //// {track.name}</p>
-            <input className={styles.addbutton} type='button' value='Add +' onClick={(event) => addToPlaylist(track)} />
+            <input className={styles.addbutton} type='button' value='+' onClick={(event) => addToPlaylist(track)} />
         </div>
        
     ) 
