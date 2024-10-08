@@ -24,13 +24,16 @@ function App() {
 
   return (
     <div className="App">
-      <div>
+
+      <div className="Header">
           <h1>jammming</h1>
+          <SearchBar setResults={setResults}/>
+      </div>
+      <div className="contentbox" >
+          <SearchResults results={results} addToPlaylist={addToPlaylist} />
+          <Playlist playlist={playlist} removeFromPlaylist={removeFromPlaylist} />
       </div>
       
-      <SearchBar setResults={setResults}/>
-      <SearchResults results={results} addToPlaylist={addToPlaylist} />
-      <Playlist playlist={playlist} removeFromPlaylist={removeFromPlaylist} />
     </div>
   );
 }

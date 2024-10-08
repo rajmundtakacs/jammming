@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getAccessTokenFromUrl } from '../../util/Spotify';
+import styles from './SearchBar.module.css';
 
 function SearchBar({ setResults }) {
 
@@ -57,12 +58,14 @@ function SearchBar({ setResults }) {
         <div>
             <form onSubmit={(e) => handleSubmit(e)}>
                 <input
+                    className={styles.searchinputfield}
                     onChange={(e) => handleChange(e.target.value)}
                     type="text"
                     value={searchInput}
                     placeholder="Type something..."
                 />
-                <input type="submit" value="Search" />
+                <br></br>
+                <input className={styles.button} type="submit" value="Search" />
             </form>
         </div>
     );

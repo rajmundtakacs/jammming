@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { loginToSpotify, getAccessTokenFromUrl } from '../../util/Spotify';
+import styles from './Playlist.module.css';
 
 const Playlist = ({ playlist, removeFromPlaylist }) => {
 
@@ -112,17 +113,21 @@ const Playlist = ({ playlist, removeFromPlaylist }) => {
     
     
     return (
-        <div>
+        <div className={styles.playlistbox}>
             {userProfile && (
-                    <h3>Hey {userProfile.display_name} !</h3>
+                <div>
+                    <h3 className={styles.greeting} >Hey {userProfile.display_name} !</h3>
+                    <input
+                        className={styles.playlistinputfield}
+                        value={playlistName}
+                        id="name"
+                        type="text"
+                        placeholder="Name your playlist..."
+                        onChange={(e) => setPlaylistName(e.target.value)}
+                    />
+                </div>
             )} 
-            <input
-                value={playlistName}
-                id="name"
-                type="text"
-                placeholder="Name your playlist..."
-                onChange={(e) => setPlaylistName(e.target.value)}
-            />
+            
             <div>
                 {playlist.map((track, i) => (
                     <div key={i}>
@@ -132,16 +137,13 @@ const Playlist = ({ playlist, removeFromPlaylist }) => {
                 ))}
             </div>
             {userProfile && (
-                <button onClick={savePlaylist}>Save to Spotify</button>
+                <button className={styles.button} onClick={savePlaylist}>Save to Spotify</button>
             )}
 
             {!accessToken && (
-                <button onClick={handleLogin}>Log in to Spotify</button>
+                <button className={styles.button} onClick={handleLogin}>Log in to Spotify</button>
             )}
 
-            
-             
-            
         </div>
     );
 

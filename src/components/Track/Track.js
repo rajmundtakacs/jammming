@@ -1,21 +1,13 @@
 import React from 'react';
+import styles from './Track.module.css';
 
 
 const Track = ({track, addToPlaylist}) => {
 
     return (
-        <div>
-            <div>
-                {track.artist} - 
-                {track.name}  - 
-                {track.preview_url && (
-                    <audio controls>
-                        <source src={track.preview_url} type="audio/mpeg" />
-                        Your browser does not support the audio element.
-                    </audio>
-                )}
-                <input type='button' value='Add +' onClick={(event) => addToPlaylist(track)} />
-            </div>
+        <div className={styles.trackbox} >
+            <p>{track.artist} //// {track.name}</p>
+            <input className={styles.addbutton} type='button' value='Add +' onClick={(event) => addToPlaylist(track)} />
         </div>
        
     ) 

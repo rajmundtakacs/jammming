@@ -1,0 +1,18 @@
+* {
+    font-family: "Afacad Flux", sans-serif;
+}
+
+.addbutton {
+    font-size: 14px;
+    background-color: #CB80AB;
+    border: 0px;
+    cursor: pointer;
+}
+
+.trackbox {
+    border: 2px solid white;
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+    margin: 10px;
+}
