@@ -113,6 +113,9 @@ const Playlist = ({ playlist, removeFromPlaylist }) => {
     
     return (
         <div>
+            {userProfile && (
+                    <h3>Hey {userProfile.display_name} !</h3>
+            )} 
             <input
                 value={playlistName}
                 id="name"
@@ -137,13 +140,7 @@ const Playlist = ({ playlist, removeFromPlaylist }) => {
             )}
 
             
-            {userProfile && (
-                <div>
-                    <h3>{userProfile.display_name}</h3>
-                    <p>{userProfile.email}</p>
-                    <p>{userProfile.country}</p>
-                </div>
-            )}  
+             
             
         </div>
     );
