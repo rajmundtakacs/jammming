@@ -99,10 +99,10 @@ const Playlist = ({ playlist, removeFromPlaylist }) => {
                 });
 
                 if (saveTracks.ok) {
-                    console.log('Tracks added successfully to the playlist')
+                    console.log('Tracks added successfully to the playlist');
+                    alert('Playlist saved to your profile!');
                 } else {
                     console.log('Failed to create playlist');
-                    return null;
                 }
     
     } catch (error) {
