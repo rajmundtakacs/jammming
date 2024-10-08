@@ -24,7 +24,10 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Jammming</h1>
+      <div>
+          <h1>jammming</h1>
+      </div>
+      
       <SearchBar setResults={setResults}/>
       <SearchResults results={results} addToPlaylist={addToPlaylist} />
       <Playlist playlist={playlist} removeFromPlaylist={removeFromPlaylist} />

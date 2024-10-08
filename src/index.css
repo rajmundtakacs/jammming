@@ -5,6 +5,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #624E88;
+  color: #E6D9A2;
+  font-family: "Afacad Flux", sans-serif;
+
 }
 
 code {
