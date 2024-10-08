@@ -7,8 +7,8 @@ const SearchResults = ({results, addToPlaylist}) => {
     return (
         <div>
             {
-                results.map((result, id) => {
-                    return <Track result={result} key={id} addToPlaylist={addToPlaylist} />
+                results.map((track, id) => {
+                    return <Track track={track} key={id} addToPlaylist={addToPlaylist} />
                 })
             }
         </div>

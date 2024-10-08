@@ -21,6 +21,7 @@ function SearchBar({ setResults }) {
                     artist: data.artists[0].name,
                     album: data.album.name,
                     uri: data.uri,
+                    preview_url: data.preview_url,
                 }));
 
                 setResults(returnedData);
