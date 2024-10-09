@@ -5,10 +5,6 @@ const AUTH_ENDPOINT = 'https://accounts.spotify.com/authorize';
 const RESPONSE_TYPE = 'token';
 const SCOPES = 'user-read-private user-read-email playlist-modify-public playlist-modify-private';
 
-// Key for local storage
-const TOKEN_KEY = 'spotify_access_token';
-const EXPIRY_KEY = 'spotify_token_expiry';
-
 // Redirecting user to Spotify for login
 export const loginToSpotify = () => {
     window.location.href = `${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPES}`;
