@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { loginToSpotify, getAccessTokenFromUrl } from '../../util/Spotify';
 import styles from './Playlist.module.css';
 
@@ -8,8 +8,7 @@ const Playlist = ({ playlist, removeFromPlaylist }) => {
     const [accessToken, setAccessToken] = useState(''); 
     const [userProfile, setUserProfile] = useState(null);
 
-    const getUserProfile = async () => {
-
+    const getUserProfile = useCallback(async () => {
         if (!accessToken) {
             console.log('No access token available');
             return;
@@ -32,14 +31,14 @@ const Playlist = ({ playlist, removeFromPlaylist }) => {
         } catch (error) {
             console.log(error);
         }
-    };
+    }, [accessToken]);
 
     useEffect(() => {
         const token = getAccessTokenFromUrl();
         if (token) {
             setAccessToken(token);
         } 
-    }, [getAccessTokenFromUrl]);
+    }, []);
 
     useEffect(() => {
         if (accessToken) {
