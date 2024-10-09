@@ -8,24 +8,6 @@ const Playlist = ({ playlist, removeFromPlaylist }) => {
     const [accessToken, setAccessToken] = useState(''); 
     const [userProfile, setUserProfile] = useState(null);
 
-
-    useEffect(() => {
-        const token = getAccessTokenFromUrl();
-        if (token) {
-            setAccessToken(token);
-        } 
-    }, []);
-
-    useEffect(() => {
-        if (accessToken) {
-            getUserProfile();
-        }
-    }, [accessToken]);
-
-    const handleLogin = () => {
-        loginToSpotify();
-    };
-
     const getUserProfile = async () => {
 
         if (!accessToken) {
@@ -50,6 +32,24 @@ const Playlist = ({ playlist, removeFromPlaylist }) => {
         } catch (error) {
             console.log(error);
         }
+    };
+
+    useEffect(() => {
+        const token = getAccessTokenFromUrl();
+        if (token) {
+            setAccessToken(token);
+        } 
+    }, [getAccessTokenFromUrl]);
+
+    useEffect(() => {
+        if (accessToken) {
+            getUserProfile();
+        }
+    }, [accessToken, getUserProfile]);
+
+
+    const handleLogin = () => {
+        loginToSpotify();
     };
 
 
