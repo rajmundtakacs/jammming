@@ -134,7 +134,7 @@ const Playlist = ({ playlist, removeFromPlaylist }) => {
             <div>
                 {playlist.map((track, i) => (
                     <div className={styles.trackbox} key={i}>
-                        <p>{track.artist} //// {track.name}</p>
+                        <p>{track.artist} - {track.name}</p>
                         <button className={styles.removebutton} onClick={() => removeFromPlaylist(i)}>-</button>
                     </div>
                 ))}
