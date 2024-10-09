@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getAccessTokenFromUrl } from '../../util/Spotify';
+import { getAccessToken } from '../../util/Spotify';
 import styles from './SearchBar.module.css';
 
 function SearchBar({ setResults }) {
@@ -46,7 +46,7 @@ function SearchBar({ setResults }) {
     };
 
     useEffect(() => {
-        const token = getAccessTokenFromUrl();
+        const token = getAccessToken();
         if (token) {
             setAccessToken(token);
         }
