@@ -19,39 +19,10 @@ export const getAccessTokenFromUrl = () => {
     const hash = window.location.hash;
     if (hash) {
         const token = new URLSearchParams(hash.substring(1)).get('access_token');
-        const expiry = new URLSearchParams(hash.substring(1)).get('expires_in');
-
-        // Storing token and expiry in local storage
-        if (token && expiry) {
-            const expiryTime = new Date().getTime() + parseInt(expiry) * 1000; // ms
-            localStorage.setItem(TOKEN_KEY, token);
-            localStorage.setItem(EXPIRY_KEY, expiryTime);
-        }
-
         return token;
     }
     return null;
 };
 
-// Checking if the token is expired
-const isTokenExpired = () => {
-    const expiryTime = localStorage.getItem(EXPIRY_KEY);
-    return expiryTime ? new Date().getTime() > expiryTime : true;
-};
-
-
-export const getAccessToken = () => {
-    
-    if (isTokenExpired()) {
-        
-        console.log("Token expired");
-        
-        localStorage.removeItem(TOKEN_KEY);
-        localStorage.removeItem(EXPIRY_KEY);
-        
-        return null;
-    }
-    return localStorage.getItem(TOKEN_KEY);
-};
 
 

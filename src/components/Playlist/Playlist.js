@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { loginToSpotify, getAccessToken } from '../../util/Spotify';
+import { loginToSpotify, getAccessTokenFromUrl } from '../../util/Spotify';
 import styles from './Playlist.module.css';
 
 const Playlist = ({ playlist, removeFromPlaylist }) => {
@@ -34,7 +34,7 @@ const Playlist = ({ playlist, removeFromPlaylist }) => {
     }, [accessToken]);
 
     useEffect(() => {
-        const token = getAccessToken();
+        const token = getAccessTokenFromUrl();
         if (token) {
             setAccessToken(token);
         } 
