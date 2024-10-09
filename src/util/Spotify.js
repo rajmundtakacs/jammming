@@ -1,6 +1,6 @@
 // Spotify Credentials
 const CLIENT_ID = '19fd446429584459855d315edf7d84fc';
-const REDIRECT_URI = 'http://localhost:3000/';
+const REDIRECT_URI = 'https://mapadujammming.netlify.app';
 const AUTH_ENDPOINT = 'https://accounts.spotify.com/authorize';
 const RESPONSE_TYPE = 'token';
 const SCOPES = 'user-read-private user-read-email playlist-modify-public playlist-modify-private';
