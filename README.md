@@ -51,14 +51,15 @@ Jammming is a React application that lets you search for songs via the [Spotify 
 
 ## Deployment
 
-    Build a production bundle with:
-    ```bash
-    npm run build
-    ```
+Build a production bundle with:
 
-    The build/ folder can be deployed to any static host (GitHub Pages, Netlify, Vercel, etc).
+```bash
+npm run build
+```
 
-    Don’t forget to add your deployed URL to the redirect URIs in the Spotify Dashboard!
+The build/ folder can be deployed to any static host (GitHub Pages, Netlify, Vercel, etc).
+
+Don’t forget to add your deployed URL to the redirect URIs in the Spotify Dashboard!
 
 ## Project Structure
 
