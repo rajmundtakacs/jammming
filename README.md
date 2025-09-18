@@ -22,31 +22,30 @@ Jammming is a React application that lets you search for songs via the [Spotify 
 ## Installation & Setup
 
 1. Clone the repository
-   ```bash
-   git clone https://github.com/<your-username>/jammming.git
-   cd jammming
-   ```
+```bash
+git clone https://github.com/<your-username>/jammming.git
+cd jammming
+```
 
 2. Install dependencies
-    ```bash
-    npm install
-    ```
+```bash
+npm install
+```
 
 3. Create an .env file in the project root with your Spotify app credentials:
-    ```env
-    REACT_APP_SPOTIFY_CLIENT_ID=your_spotify_client_id
-    REACT_APP_REDIRECT_URI=http://localhost:3000/
-    REACT_APP_SCOPES=playlist-modify-private playlist-modify-public user-read-private
-    ```
-    !!! The REDIRECT_URI must exactly match one of the redirect URIs registered in your Spotify Developer Dashboard
-
+```env
+REACT_APP_SPOTIFY_CLIENT_ID=your_spotify_client_id
+REACT_APP_REDIRECT_URI=http://localhost:3000/
+REACT_APP_SCOPES=playlist-modify-private playlist-modify-public user-read-private
+```
+!!! The REDIRECT_URI must exactly match one of the redirect URIs registered in your Spotify Developer Dashboard
 
 4. Start the development server
-    ```bash
-    npm start
-    ```
+```bash
+npm start
+```
 
-    The app will run at http://localhost:3000
+The app will run at http://localhost:3000
 
 
 ## Deployment
