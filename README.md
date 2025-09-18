@@ -63,18 +63,19 @@ Don’t forget to add your deployed URL to the redirect URIs in the Spotify Dash
 
 ## Project Structure
 
+```text
 src/
   components/      # Reusable UI components (SearchBar, SearchResults, Playlist, etc.)
   util/Spotify.js  # Spotify API & authentication logic
   App.js           # Main app component
   index.js         # App entry point
-
+```
 
 ## Development Notes
 
-    The playlist save functionality requires a valid Spotify Premium account (API restriction for playback features).
+The playlist save functionality requires a valid Spotify Premium account (API restriction for playback features).
 
-    Tokens from the implicit flow expire after a short time; you may need to log in again.
+Tokens from the implicit flow expire after a short time; you may need to log in again.
 
 ## License
 
