@@ -1,9 +1,9 @@
 // Spotify Credentials
-const CLIENT_ID = '19fd446429584459855d315edf7d84fc';
-const REDIRECT_URI = 'https://mapadujammming.netlify.app/';
+const CLIENT_ID = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
+const REDIRECT_URI = process.env.REACT_APP_REDIRECT_URI;
+const SCOPES = process.env.REACT_APP_SCOPES;
 const AUTH_ENDPOINT = 'https://accounts.spotify.com/authorize';
 const RESPONSE_TYPE = 'token';
-const SCOPES = 'user-read-private user-read-email playlist-modify-public playlist-modify-private';
 
 // Redirecting user to Spotify for login
 export const loginToSpotify = () => {
