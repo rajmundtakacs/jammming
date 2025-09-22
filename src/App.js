@@ -37,7 +37,7 @@ function App() {
         "
       >
         <section className="w-full max-w-xl md:max-w-none md:w-full mx-auto">
-          <SearchResults results={results} addToPlaylist={addToPlaylist} />
+          <SearchResults results={results} addToPlaylist={addToPlaylist} playlist={playlist} />
         </section>
   
         <section className="w-full max-w-xl md:max-w-none md:w-full">
