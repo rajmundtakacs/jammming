@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { getAccessTokenFromUrl } from '../../util/Spotify';
-import styles from './SearchBar.module.css';
 
 function SearchBar({ setResults }) {
 
@@ -56,19 +55,42 @@ function SearchBar({ setResults }) {
 
     return (
         <div>
-            <form onSubmit={(e) => handleSubmit(e)}>
-                <input
-                    className={styles.searchinputfield}
-                    onChange={(e) => handleChange(e.target.value)}
-                    type="text"
-                    value={searchInput}
-                    placeholder="Type something..."
-                />
-                <br></br>
-                <input className={styles.button} type="submit" value="Search" />
-            </form>
+          <form onSubmit={(e) => handleSubmit(e)} className="flex flex-col items-center">
+            <input
+              onChange={(e) => handleChange(e.target.value)}
+              type="text"
+              value={searchInput}
+              placeholder="Type something..."
+              className="
+                text-[20px]
+                rounded
+                px-3 py-2
+                mb-4
+                text-center text-black
+                border-0
+                outline-none
+                ring-0 focus:ring-4 focus:ring-[#CB80AB]/30
+              "
+            />
+            
+            <input
+              type="submit"
+              value="Search"
+              className="
+                px-10 py-5
+                my-5
+                text-[24px]
+                bg-[#CB80AB] text-white
+                rounded
+                border-0
+                cursor-pointer
+                hover:brightness-110 active:brightness-95
+              "
+            />
+          </form>
         </div>
-    );
+      );
+      
 }
 
 export default SearchBar;

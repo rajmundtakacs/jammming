@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { loginToSpotify, getAccessTokenFromUrl } from '../../util/Spotify';
-import styles from './Playlist.module.css';
 
 const Playlist = ({ playlist, removeFromPlaylist }) => {
 
@@ -111,44 +110,93 @@ const Playlist = ({ playlist, removeFromPlaylist }) => {
 }
     
     
-    return (
-        <div className={styles.playlistbox}>
-            {userProfile && (
-                <div>
-                    <div>
-                        <h3 className={styles.greeting} >Hey {userProfile.display_name} !</h3>
-                    </div>
-                    <div >
-                        <input
-                            className={styles.playlistinputfield}
-                            value={playlistName}
-                            id="name"
-                            type="text"
-                            placeholder="Name your playlist..."
-                            onChange={(e) => setPlaylistName(e.target.value)}
-                        />
-                    </div>
-                </div>
-            )} 
-            
-            <div>
-                {playlist.map((track, i) => (
-                    <div className={styles.trackbox} key={i}>
-                        <p>{track.artist} - {track.name}</p>
-                        <button className={styles.removebutton} onClick={() => removeFromPlaylist(i)}>-</button>
-                    </div>
-                ))}
-            </div>
-            {userProfile && (
-                <button className={styles.button} onClick={savePlaylist}>Save to Spotify</button>
-            )}
-
-            {!accessToken && (
-                <button className={styles.button} onClick={handleLogin}>Log in to Spotify</button>
-            )}
-
+return (
+    <div className="w-full max-w-xl md:max-w-none mx-auto">
+      {userProfile && (
+        <div className="mb-4">
+          <h3 className="text-2xl mb-2">Hey {userProfile.display_name}!</h3>
+          <input
+            className="
+              text-lg border-0 rounded p-2 mb-3 w-full text-center text-black
+            "
+            value={playlistName}
+            id="name"
+            type="text"
+            placeholder="Name your playlist..."
+            onChange={(e) => setPlaylistName(e.target.value)}
+          />
         </div>
-    );
+      )}
+  
+      <div className="space-y-2">
+        {playlist.map((track, i) => (
+          <div
+            key={i}
+            className="
+              flex items-center justify-between
+              border-2 border-[#FFECEC]
+              pl-2.5 w-full
+            "
+          >
+            <p className="flex-grow truncate pr-2">
+              {track.artist} - {track.name}
+            </p>
+            <button
+                onClick={() => removeFromPlaylist(i)}
+                className="
+                    flex items-center justify-center
+                    text-[30px] leading-none
+                    w-[50px] h-[54px]
+                    bg-[#CB80AB]
+                    border-0
+                    text-white
+                    hover:brightness-110 active:brightness-95
+                "
+                aria-label="Remove from playlist"
+                title="Remove"
+            >
+                &minus;
+            </button>
+
+          </div>
+        ))}
+      </div>
+  
+      {userProfile && (
+        <button
+          onClick={savePlaylist}
+          className="
+            inline-flex items-center justify-center
+            whitespace-nowrap
+            px-6 md:px-8 py-4
+            text-lg md:text-lg
+            bg-[#CB80AB] text-white rounded
+            hover:brightness-110 active:brightness-95
+            w-full sm:w-auto my-5
+          "
+        >
+          Save to Spotify
+        </button>
+      )}
+  
+      {!accessToken && (
+        <button
+          onClick={handleLogin}
+          className="
+            inline-flex items-center justify-center
+            whitespace-nowrap
+            px-6 md:px-8 py-4
+            text-base md:text-lg
+            bg-[#CB80AB] text-white rounded
+            hover:brightness-110 active:brightness-95
+            w-full sm:w-auto my-5
+          "
+        >
+          Log in to Spotify
+        </button>
+      )}
+    </div>
+  );  
 
 }
 
