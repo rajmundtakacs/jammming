@@ -22,7 +22,7 @@ function App() {
 
 
   return (
-    <div className="min-h-svh text-center">
+    <div className="min-h-dvh text-center">
       <header className="p-6">
         <h1 className="text-6xl font-bold mb-6">jammming</h1>
         <SearchBar setResults={setResults} />

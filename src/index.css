@@ -8,3 +8,14 @@ html, body, #root {
   color: #E6D9A2;            
 }
 
+@supports (-webkit-touch-callout: none) {
+  html, body { background-color: #624E88 !important; }
+}
+
+#root {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+
+

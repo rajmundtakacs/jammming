@@ -13,7 +13,7 @@ const Track = ({ track, addToPlaylist, isInPlaylist }) => {
             flex items-center justify-center
             w-[50px] h-[50px]
             text-[24px] leading-none
-            bg-green-200 text-gray-400
+            bg-[#94c973] text-[#624E88]
           "
         >
           ✓
