@@ -6,8 +6,9 @@ Jammming is a React application that lets you search for songs via the [Spotify 
 
 ## Tech Stack
 - [React 18](https://react.dev/) with Create React App
+- [Tailwind CSS](https://tailwindcss.com/) for responsive UI
 - Spotify Web API (Implicit Authorization Flow)
-- CSS Modules for styling
+
 
 ---
 
@@ -15,7 +16,8 @@ Jammming is a React application that lets you search for songs via the [Spotify 
 - **Spotify Authentication** – log in securely with your Spotify account  
 - **Search** – find tracks by title or artist  
 - **Playlist Builder** – add and remove tracks in a custom playlist  
-- **Save to Spotify** – push your playlist to your Spotify profile with one click  
+- **Save to Spotify** – push your playlist to your Spotify profile with one click
+- **Responsive Design** – fully mobile- and desktop-friendly UI with Tailwind CSS 
 
 ---
 
@@ -75,6 +77,8 @@ src/
 The playlist save functionality requires a valid Spotify Premium account (API restriction for playback features).
 
 Tokens from the implicit flow expire after a short time; you may need to log in again.
+
+Tailwind configuration (tailwind.config.js) is included and ready to extend for custom styling.
 
 ## License
 
