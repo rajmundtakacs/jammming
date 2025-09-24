@@ -4,6 +4,11 @@ Jammming is a React application that lets you search for songs via the [Spotify 
 
 ---
 
+## Live Demo
+[Click here to try the live version on Netlify](https://mapadujammming.netlify.app)
+
+Note: Due to Spotify’s development mode restrictions, you will need to request access with your Spotify account email to log in. See [Limitations](#limitations).
+
 ## Tech Stack
 - [React 18](https://react.dev/) with Create React App
 - [Tailwind CSS](https://tailwindcss.com/) for responsive UI
