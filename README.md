@@ -80,6 +80,14 @@ Tokens from the implicit flow expire after a short time; you may need to log in 
 
 Tailwind configuration (tailwind.config.js) is included and ready to extend for custom styling.
 
+## Limitations
+
+This project uses the Spotify Web API.  
+Due to Spotify’s **development mode restrictions**, only up to 25 registered users can access the app.  
+
+If you would like to try the live demo, please contact me with your Spotify account email so I can add you as a tester in the Spotify Developer Dashboard.
+
+
 ## License
 
 This project is for learning purposes (based on Codecademy’s Jammming project).
