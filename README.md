@@ -30,7 +30,7 @@ Note: Due to Spotify’s development mode restrictions, you will need to request
 
 1. Clone the repository
 ```bash
-git clone https://github.com/<your-username>/jammming.git
+git clone https://github.com/rajmundtakacs/jammming.git
 cd jammming
 ```
 
