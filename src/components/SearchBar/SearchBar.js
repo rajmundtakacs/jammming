@@ -77,7 +77,7 @@ function SearchBar({ setResults }) {
               type="submit"
               value="Search"
               className="
-                px-10 py-5
+                px-10 py-3
                 my-5
                 text-[24px]
                 bg-[#CB80AB] text-white

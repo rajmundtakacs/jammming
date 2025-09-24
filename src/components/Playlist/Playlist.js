@@ -187,7 +187,7 @@ return (
             inline-flex items-center justify-center
             whitespace-nowrap
             px-6 md:px-8 py-4
-            text-base md:text-lg
+            text-lg md:text-lg
             bg-[#CB80AB] text-white rounded
             hover:brightness-110 active:brightness-95
             w-full sm:w-auto my-5
