@@ -3,13 +3,14 @@ import React from 'react';
 const Track = ({ track, addToPlaylist, isInPlaylist }) => {
   return (
     <div className="flex items-center justify-between border-2 border-[#FFECEC] pl-2.5 my-2.5 w-full">
-      <p className="flex-grow truncate pr-2">
+      <p className="min-w-0 flex-grow truncate pr-2">
         {track.artist} - {track.name}
       </p>
 
       {isInPlaylist ? (
         <span
           className="
+            flex-shrink-0
             flex items-center justify-center
             w-[50px] h-[50px]
             text-[24px] leading-none
@@ -22,6 +23,7 @@ const Track = ({ track, addToPlaylist, isInPlaylist }) => {
         <button
           onClick={() => addToPlaylist(track)}
           className="
+            flex-shrink-0
             flex items-center justify-center
             w-[50px] h-[50px]
             text-[30px] leading-none

@@ -138,12 +138,13 @@ return (
               pl-2.5 w-full
             "
           >
-            <p className="flex-grow truncate pr-2">
+            <p className="min-w-0 flex-grow truncate pr-2">
               {track.artist} - {track.name}
             </p>
             <button
                 onClick={() => removeFromPlaylist(i)}
                 className="
+                    flex-shrink-0
                     flex items-center justify-center
                     text-[30px] leading-none
                     w-[50px] h-[54px]
